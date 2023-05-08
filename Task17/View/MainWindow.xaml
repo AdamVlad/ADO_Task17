@@ -1,0 +1,88 @@
+﻿<Window x:Class="Task17.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="450" 
+        Width="910">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="BuyingsDataGrid"
+                  Grid.Column="0"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="10"
+                  AutoGenerateColumns="False"
+                  CurrentCellChanged="BuyingsCurrentCellChanged"
+                  CellEditEnding="BuyingsCellEditEnding"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="BuyingsID" 
+                                    Header="ID" 
+                                    Binding="{Binding ID}"
+                                    IsReadOnly="True" />
+                <DataGridTextColumn x:Name="BuyingsFirstName" 
+                                    Header="FirstName" 
+                                    Binding="{Binding FirstName}"/>
+                <DataGridTextColumn x:Name="BuyingsLastName" 
+                                    Header="LastName" 
+                                    Binding="{Binding LastName}"/>
+                <DataGridTextColumn x:Name="BuyingsMiddleName" 
+                                    Header="MiddleName" 
+                                    Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn x:Name="BuyingsPhoneNumber" 
+                                    Header="PhoneNumber" 
+                                    Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn x:Name="BuyingsEmail" 
+                                    Header="Email" 
+                                    Binding="{Binding Email}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Add row" Click="BuyingsMenuItemAddClick"/>
+                    <MenuItem Header="Delete" Click="BuyingsMenuItemDeleteClick"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <DataGrid x:Name="OrdersDataGrid"
+                  Grid.Column="1" 
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="10"
+                  AutoGenerateColumns="False"
+                  CurrentCellChanged="OrdersCurrentCellChanged"
+                  CellEditEnding="OrdersCellEditEnding"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="OrdersID" 
+                                    Header="ID" 
+                                    Binding="{Binding ID}"
+                                    IsReadOnly="True" />
+                <DataGridTextColumn x:Name="OrdersBuyinsEmail" 
+                                    Header="BuyingsEmail" 
+                                    Binding="{Binding Email}"/>
+                <DataGridTextColumn x:Name="OrdersProductCode" 
+                                    Header="ProductCode" 
+                                    Binding="{Binding ProductCode}"/>
+                <DataGridTextColumn x:Name="OrdersProductName" 
+                                    Header="ProductName" 
+                                    Binding="{Binding ProductName}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Add row" Click="OrdersMenuItemAddClick"/>
+                    <MenuItem Header="Delete" Click="OrdersMenuItemDeleteClick"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        
+    </Grid>
+</Window>
